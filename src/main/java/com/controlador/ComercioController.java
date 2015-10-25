@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.modelo.Cliente;
-import com.servicio.ComercioService;
 
 @Controller
 public class ComercioController {
