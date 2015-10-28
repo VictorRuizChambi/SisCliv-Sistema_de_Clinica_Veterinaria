@@ -1,0 +1,623 @@
+<html ng-app="recepcionistaapp">
+	<!--CABECERA************************************************************************-->
+	<head>
+		<title>Siscliv - Recepcionista</title>
+		<title>Historial Medico</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!--Materialize*******************************-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href = "css/materialize.min.css">
+		<!--Fin Materialize**************************+-->
+	</head>
+	<!--********************************************************************************-->
+	<!--CUERPO**************************************************************************-->
+	<body class = "blue-grey lighten-3" ng-controller="recepcionistacontrolador">
+
+		<div class="navbar-fixed">
+			<nav class= "blue-grey darken-1 " style="height:130px;">
+				<div class = "nav-wrapper">
+					<div class="row">
+						<div class="col s1 "  >
+							<img src="Imagenes/logo3.png" class = "responsive-img " style= "margin: auto;"s>
+						</div>
+						<div class="col s11">
+							<h2>VETERINARIA SISCLIV - Recepcionista</h2>
+						</div>
+					</div>	
+				</div>
+			</nav>
+		</div>
+		
+		<!--TIUTLOS-->
+		<br><br><br><br>
+		<div style = "padding:20px" class = "container grey lighten-2 z-depth-1">
+			<div class="row ">
+				<div class="col s12">
+					<ul class= "tabs  blue-grey lighten-4 z-depth-1">
+						<li class = "tab col s2">
+							<a href="#tab1"  style= "color:45666A;">
+								Servicios
+							</a>
+						</li>
+						<li class = "tab col s2" >
+							<a href="#tab2" style= "color:45666A;">
+								Mascotas
+							</a>
+						</li>
+						<li class = "tab col s2">
+							<a href="#tab3" style= "color:45666A;">
+								Clientes
+							</a>
+						</li>
+						<li class = "tab col s2"></li>
+						<li class = "tab col s2"></li>
+						<li class = "tab col s2"></li>
+					</ul>
+				</div>	
+
+				
+				<div style = "padding:10px" class="col s12" id = "tab1">
+					<div class="row">
+						<div class="col s5">
+							<div class="row">
+								<div class=" input-field col s3">
+									<select name = "" id="">
+										<option value = "Mascota">DNI</option>
+										<option value = "Dueño">Apellido</option>
+									</select>
+								</div>
+								<div class="input-field col s4">
+							      <input  type="text">
+							      
+							    </div>
+								<div class="input-field col s1">
+							      	<input type="submit" class = "waves-light btn" value="Buscar"/>
+							    </div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s5">
+							Relacion de Mascotas
+							<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+						        <thead>
+						          	<tr>
+						              	<th data-field="1">NHistoria</th>
+						              	<th data-field="2">Mascota</th>
+						              	<th data-field="2">Dueno</th>
+						          	</tr>
+						        </thead>
+
+						        <tbody>
+						          	<tr>
+						            	<td>100</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>200</td>
+						            	<td>13:30 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>300</td>
+						            	<td>14:00 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>400</td>
+						            	<td>14:30 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>500</td>
+						            	<td>16:30 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						        </tbody>
+				      		</table>
+						</div>
+						<div class="col s7">
+							Servicios del Dia
+							<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+						        <thead>
+						          	<tr>
+						              	<th data-field="1">Cliente</th>
+						              	<th data-field="2">Mascota</th>
+						              	<th data-field="2">TipoServicio</th>
+						              	<th data-field="2">Medico</th>
+						          	</tr>
+						        </thead>
+						        <tbody>
+						          	<tr>
+						            	<td>100</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>200</td>
+						            	<td>13:30 pm</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>300</td>
+						            	<td>14:00 pm</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>400</td>
+						            	<td>14:30 pm</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						          	<tr>
+						            	<td>500</td>
+						            	<td>16:30 pm</td>
+						            	<td>12:04 pm</td>
+						            	<td>12:04 pm</td>
+						          	</tr>
+						        </tbody>
+				      		</table>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s5">
+							<input type="submit" class = "btn" value="Registrar Servicio" />
+						</div>
+					</div>
+					<div class="row blue-grey lighten-4 z-depth-1" style = "padding:30px">
+						<div class="col s3">
+							Cliente: Samir Alarcon Pillco<br>
+							Mascota: Osa<br>
+							Fecha: 12/07/11<br>
+						</div>
+						<div class="col s4">
+							<select name = "" id="">
+								<option value="" disabled selected>Tipo de Servicio</option>
+								<option value = "Mascota">Consulta</option>
+								<option value = "Dueño">Bano/Peluqueria</option>
+								<option value = "Dueño">Tratamiento</option>
+							</select>
+							<select name = "" id="">
+								<option value="" disabled selected>Medico</option>
+								<option value = "Mascota">Mayra Davila</option>
+								<option value = "Dueño">Cristian Percca</option>
+								<option value = "Dueño">Leonardo Ipchas</option>
+							</select>
+						</div>
+						<div class="col s2">
+							<div class="row">
+								<input type="submit" class = "btn" value="Guardar" />
+							</div>
+							<div class="row">
+								<input type="submit" class = "btn" value="Eliminar" />
+							</div>
+						</div>
+						<div class="col s2">
+							<div class="row">
+								<input type="submit" class = "btn" value="Actualizar" />
+							</div>
+							<div class="row">
+								<input type="submit" class = "btn" value="Cancelar" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div tyle = "padding:20px" class="col s12" id = "tab2">
+					<div class="row">
+						<div class="col s5">
+							<div class="row">
+								<div class=" input-field col s3">
+									<select name = "" id="">
+										<option value = "Mascota">DNI</option>
+										<option value = "Dueño">APELLIDO</option>
+									</select>
+								</div>
+								<div class="input-field col s3">
+							      <input  type="text">
+							      
+							    </div>
+								<div class="input-field col s1">
+							      	<input type="submit" class = "waves-light btn" value="Buscar"/>
+							    </div>
+							</div>
+						</div>
+
+
+						<div class="col s5  offset-m1 offset-l2">
+							<div class="row">
+								<div class=" input-field col s3">
+									<select name = "" id="">
+										<option value = "Mascota">Mascota</option>
+										<option value = "Dueño">Nro. Historia</option>
+									</select>
+								</div>
+								<div class="input-field col s2">
+							      <input  type="text">
+							      
+							    </div>
+								<div class="input-field col s1">
+							      	<input type="submit" class = "waves-light btn " value="Buscar"/>
+							    </div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="row">
+						<div class="col s5">
+							Relacion de Clientes
+							<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+						        <thead>
+						          	<tr>
+						              	<th data-field="1">DNI</th>
+						              	<th data-field="2">Nombre</th>
+						              	
+						          	</tr>
+						        </thead>
+							        <tbody>
+							          	<tr>
+							            	<td>100</td>
+							            	<td>Samir</td>
+							            	
+							          	</tr>
+							          	<tr>
+							            	<td>200</td>
+							            	<td>Gabriel </td>
+							            	
+							          	</tr>
+							          	<tr>
+							            	<td>300</td>
+							            	<td>Carlos</td>
+							            	
+							          	</tr>
+							          	<tr>
+							            	<td>400</td>
+							            	<td>Pepe</td>
+							            	
+							          	</tr>
+							          	<tr>
+							            	<td>500</td>
+							            	<td>Leo</td>
+							            	
+							          	</tr>
+						        	</tbody>
+				      			</table>
+							</div>
+
+							<div class="col s7 ">
+							Relacion de Mascotas
+							<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+						        <thead>
+						          	<tr>
+						              	<th data-field="2">Nro. Historia</th>
+						              	<th data-field="3">Mascota</th>
+						              	<th data-field="2">Fecha Nacimiento</th>
+						              	<th data-field="3">Tipo</th>
+						              	<th data-field="3">Raza</th>
+						          	</tr>
+						        </thead>
+							        <tbody>
+							          	<tr>
+							            	<td>100</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	
+							          	</tr>
+							          	<tr>
+							            	<td>200</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							          	</tr>
+							          	<tr>
+							            	<td>300</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							          	</tr>
+							          	<tr>
+							            	<td>400</td>
+							          		<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							          	</tr>
+							          	<tr>
+							            	<td>500</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							            	<td>12:04 pm</td>
+							          	</tr>
+						        	</tbody>
+				      			</table>
+				      			<br><br><br>
+				      			<form class="col s12">
+								     <div class="row">
+								        <div class="input-field col s6">
+								          <input  id="Cliente" type="text" class="validate">
+								          <label for="Cliente">Cliente</label>
+								        </div>
+								        <div class="input-field col s6">
+								          <input id="Raza" type="text" class="validate">
+								          <label for="Raza">Raza</label>
+								        </div>
+								     </div>
+							      	<div class="row">
+								        <div class="input-field col s6">
+								          <input  id="Mascota" type="text" class="validate">
+								          <label for="Mascota">Mascota</label>
+								        </div>
+								        <div class=" input-field col s3">
+											<select name = "" id="">
+												<option value = "0">Sexo</option>
+												<option value = "Macho">Macho</option>
+												<option value = "Hembra">Hembra</option>
+											</select>
+										</div>
+										 <div class=" input-field col s3">
+											<select name = "" id="">
+												<option value = "0">Tipo</option>
+												<option value = "Gato">Gato</option>
+												<option value = "Perro">Perro</option>
+											</select>
+										</div>
+							      	</div>
+								    <div class="row">
+								        <div class="input-field col s7">
+								        	  <label for="date" class="active">Fecha</label>
+								        	  <input type="date" class="datepicker">
+									   	</div>
+							      	</div>
+							      	<div class="row">
+								        <div class="input-field col s5">
+							      			<input type="submit" class = "btn" value="Generar Carnet" />
+							  			</div>
+							  			<div class="input-field col s5">
+							      			<input type="submit" class = "btn" value="Guardar" />
+							  			</div>
+
+							      	</div>
+							    </form>
+							</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+				<div style = "padding:20px" class="col s12" id = "tab3">
+					<div class="row">
+						<div class="col s5">
+							<div class="row">
+<!-- 								<div class=" input-field col s3"> -->
+<!-- 									<select name = "" id=""> -->
+<!-- 										<option value = "Mascota">DNI</option> -->
+<!-- 										<option value = "Dueño">Cliente</option> -->
+<!-- 									</select> -->
+<!-- 								</div> -->
+<!-- 								<div class="input-field col s4"> -->
+<!-- 							      <input  type="text"> -->
+							      
+<!-- 							    </div> -->
+<!-- 								<div class="input-field col s1"> -->
+<!-- 							      	<input type="submit" class = "waves-light btn" value="Buscar"/> -->
+<!-- 							    </div> -->
+
+							<div class="input-field col s12 m6">
+								<input style="border-radius: 4px; border: 1px solid #ccc"
+									id="fullname" type="text" name="search" ng-model="searchText" />
+								<label for="fullname" class="active"> <span
+									class="fa fa-search"></span> Busqueda:
+								</label>
+
+
+
+
+							</div>
+
+						</div>
+							
+						</div>
+						<div class="row">
+							<div class="col s12">
+							Relacion de Clientes
+							<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+						        <thead>
+						          	<tr>
+						              	<th data-field="1">DNI</th>
+						              	<th data-field="2">Nombre</th>
+						              	<th data-field="2">Apellido Paterno</th>
+						              	<th data-field="2">Apellido Materno</th>
+						              	<th data-field="2">FechaNacimiento</th>
+						              	<th data-field="2">Email</th>
+						              	<th data-field="2">Direccion</th>
+						              	<th data-field="2">Editar</th>
+						              	
+						          	</tr>
+						        </thead>
+							        <tbody>
+							          	<tr ng-repeat="cliente in clientes | orderBy:predicate:reverse | filter:searchText | limitTo:10">
+
+							            	<td>{{cliente.cInDni}}</td>
+							            	<td>{{cliente.cStNombres}}</td>
+							            	<td>{{cliente.cStApellidoPaterno}}</td>
+							            	<td>{{cliente.cStApellidoMaterno}}</td>
+							            	<td>{{cliente.cDtFechaNacimiento}}</td>
+							            	<td>{{cliente.cStCorreo}}</td>
+							            	<td>{{cliente.cStDireccion}}</td>
+								            <td>editar</td>
+							           	</tr>
+							          	
+						        	</tbody>
+				      			</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class=" input-field col s2">
+								<input type="submit" class = "btn" value="Nuevo" />
+							</div>
+							<div class=" input-field col s2">
+								<input type="submit" class = "btn" value="Eliminar" />
+							</div>
+							<div class=" input-field col s2">
+								<input type="submit" class = "btn" value="Guardar" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s3">
+								<input id="DNI" type="text" class="validate" ng-model="index">
+	          					<label for="DNI">DNI</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Telefono" type="text" class="validate">
+	          					<label for="Telefono">Telefono</label>
+							</div>
+							<div class="input-field col s1">
+								<select name = "" id="">
+									<option value="" disabled selected>Dia</option>
+									<option value = "Mascota">DNI</option>
+									<option value = "Dueño">Cliente</option>
+								</select>
+							</div>
+							<div class="input-field col s1">
+								<select name = "" id="">
+									<option value="" disabled selected>Mes</option>
+									<option value = "Mascota">DNI</option>
+									<option value = "Dueño">Cliente</option>
+								</select>
+							</div>
+							<div class="input-field col s1">
+								<select name = "" id="">
+									<option value="" disabled selected>Anio</option>
+									<option value = "Mascota">DNI</option>
+									<option value = "Dueño">Cliente</option>
+								</select>
+							</div>
+	          			</div>
+	          			<div class="row">
+							<div class="input-field col s3">
+								<input id="Nombre" type="text" class="validate">
+	          					<label for="Nombre">Nombre</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Email" type="text" class="validate">
+	          					<label for="Email">Email</label>
+							</div>
+	          			</div>
+	          			<div class="row">
+	          				<div class="input-field col s3">
+								<input id="Apellidos" type="text" class="validate">
+	          					<label for="Apellidos">Apellidos</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Direccion" type="text" class="validate">
+	          					<label for="Direccion">Direccion</label>
+							</div>
+	          			</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+		</div>	
+
+		<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+		    <a class="btn-floating btn-large red">
+		      <i class="large material-icons">mode_edit</i>
+		    </a>
+		    <ul>
+		      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
+		      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+		      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+		      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+		    </ul>
+		 </div>
+
+	  	<footer class="page-footer #e0e0e0 grey lighten-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p aling="center" class="blue-text"><img src="Imagenes/logo3.png" style="height: 60px; align:center; " >Sistema de Veterinaria ... </p>
+                
+                <p class="blue-text ">Curso    :  Taller de Proyectos 2 </p>
+                <p class="blue-text ">Profesor :  Chavez </p>
+
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="blue-text">Integrantes</h5>
+                <ul>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright blue-text">
+            <div class="container">
+            © 2015 Copyright Text
+            <a class="blue-text right" >Grupo Nro. 4</a>
+            </div>
+          </div>
+        </footer>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script>
+			 
+			$('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 15 // Creates a dropdown of 15 years to control year
+			  });
+			$(document).ready(function(){
+	    		$('select').material_select();
+	  		});
+			$(document).ready(function(){
+	    		$('ul.tabs').tabs();
+	  		});
+	  		$(document).ready(function(){
+    			$('ul.tabs').tabs('select_tab', 'tab_id');
+  			});
+
+  			$('.modal-trigger').leanModal({
+			      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+			      opacity: .5, // Opacity of modal background
+			      in_duration: 300, // Transition in duration
+			      out_duration: 200, // Transition out duration
+			      ready: function() { alert('Ready'); }, // Callback for Modal open
+			      complete: function() { alert('Closed'); } // Callback for Modal close
+		    	}
+		  	);
+		</script>
+		
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="scripts/RecepcionistaCtrl.js"></script>
+		
+		
+	</body>
+	<!--*********************************************************************************-->
+</html>

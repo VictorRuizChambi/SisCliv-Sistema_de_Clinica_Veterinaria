@@ -1,9 +1,23 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -20,7 +34,7 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="c_in_cliente_pk")
-	private int cInClientePk;
+	private Integer cInClientePk;
 
 	@Column(name="c_ch_sexo")
 	private String cChSexo;
@@ -30,10 +44,10 @@ public class Cliente implements Serializable {
 	private Date cDtFechaNacimiento;
 
 	@Column(name="c_in_dni")
-	private int cInDni;
+	private Integer cInDni;
 
 	@Column(name="c_in_status")
-	private int cInStatus;
+	private Integer cInStatus;
 
 	@Column(name="c_st_apellido_materno")
 	private String cStApellidoMaterno;
@@ -51,10 +65,12 @@ public class Cliente implements Serializable {
 	private String cStNombres;
 
 	//bi-directional many-to-one association to Usuario
+	@Exclude
 	@ManyToOne
 	@JoinColumn(name="u_in_usuario_fk")
 	private Usuario usuario;
 
+	@Exclude
 	//bi-directional many-to-one association to Mascota
 	@OneToMany(mappedBy="cliente")
 	private List<Mascota> mascotas;

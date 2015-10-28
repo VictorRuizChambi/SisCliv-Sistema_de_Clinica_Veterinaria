@@ -18,13 +18,15 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Override
 	public List<Cliente> getClientes() {
-
-		return clienteCrudDAO.findAll(Cliente.class);
+		System.out.println("Esta intentando traer clientes");
+		List<Cliente> clientes=clienteCrudDAO.findAll(Cliente.class);
+		System.out.println(clientes.get(0).getCStNombres());;
+		return clientes;
 	}
 
 	@Override
 	public Cliente getCliente(int cInClientePk) {
-
+		System.out.println("Esta intentando traer un cliente");
 		return clienteCrudDAO.findById(Cliente.class,cInClientePk);
 	}
 

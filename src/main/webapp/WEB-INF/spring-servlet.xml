@@ -40,11 +40,9 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-<!-- 	    <property name="prefix" value="/WEB-INF/jsp/"/> -->
-<!-- 	    <property name="suffix" value=".jsp"/> -->
-	        <property name="prefix">
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!-- 	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
+        <property name="prefix">
             <value>/</value>
         </property>
         <property name="suffix">
@@ -52,6 +50,9 @@
         </property>
 	</bean>
 	
+
+
+ 
 
 	<tx:annotation-driven />
 	<bean id="transactionManager"
