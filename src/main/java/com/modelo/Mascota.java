@@ -3,7 +3,6 @@ package com.modelo;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -42,10 +41,6 @@ public class Mascota implements Serializable {
 	@Column(name="m_st_nombre")
 	private String mStNombre;
 
-	//bi-directional many-to-one association to Historial
-	@OneToMany(mappedBy="mascota")
-	private List<Historial> historials;
-
 	//bi-directional many-to-one association to Cliente
 	@ManyToOne
 	@JoinColumn(name="c_in_cliente_fk")
@@ -55,6 +50,10 @@ public class Mascota implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="e_in_especie_fk")
 	private Especie especie;
+
+	//bi-directional many-to-one association to Historial
+	@ManyToOne
+	private Historial historial;
 
 	public Mascota() {
 	}
@@ -123,28 +122,6 @@ public class Mascota implements Serializable {
 		this.mStNombre = mStNombre;
 	}
 
-	public List<Historial> getHistorials() {
-		return this.historials;
-	}
-
-	public void setHistorials(List<Historial> historials) {
-		this.historials = historials;
-	}
-
-	public Historial addHistorial(Historial historial) {
-		getHistorials().add(historial);
-		historial.setMascota(this);
-
-		return historial;
-	}
-
-	public Historial removeHistorial(Historial historial) {
-		getHistorials().remove(historial);
-		historial.setMascota(null);
-
-		return historial;
-	}
-
 	public Cliente getCliente() {
 		return this.cliente;
 	}
@@ -159,6 +136,14 @@ public class Mascota implements Serializable {
 
 	public void setEspecie(Especie especie) {
 		this.especie = especie;
+	}
+
+	public Historial getHistorial() {
+		return this.historial;
+	}
+
+	public void setHistorial(Historial historial) {
+		this.historial = historial;
 	}
 
 }

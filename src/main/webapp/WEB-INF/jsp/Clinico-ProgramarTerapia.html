@@ -1,0 +1,176 @@
+<html>
+	<!--CABECERA************************************************************************-->
+	<head>
+		<!--Materialize*******************************-->
+		<title>Clinico-ProgramarTerapia</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!--Materialize*******************************-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href = "css/materialize.min.css">
+		<!--Fin Materialize**************************+-->
+	</head>
+	<!--********************************************************************************-->
+	<!--CUERPO**************************************************************************-->
+	<body class = "blue-grey lighten-3">
+
+		<div class="navbar-fixed">
+			<nav class= "blue-grey darken-1 " style="height:130px;">
+				<div class = "nav-wrapper">
+					<div class="row">
+						<div class="col s1 "  >
+							<img src="Imagenes/logo3.png" class = "responsive-img " style= "margin: auto;"s>
+						</div>
+						<div class="col s11">
+							<h2>VETERINARIA SISCLIV</h2>
+						</div>
+					</div>	
+				</div>
+			</nav>
+		</div>
+		
+		<!--TIUTLOS-->
+		<br><br><br><br>
+		<div style = "padding:20px" class = "container grey lighten-2">
+			<div class="row">
+				<div class="col m2">
+					<img src="Imagenes/usuario.png" class = "responsive-img " style= "margin: auto;"s>
+				</div>
+				<div class="col s5">
+					<h6> <i>N° de Caso :</i> H123 </h6>
+					<h6> <i>Especie    :</i> Perro </h6>
+					<h6> <i>Raza	   :</i> Cruce </h6>
+					<h6> <i>Propietario:</i> Juan Manuel </h6>
+				</div>
+				<div class="col s5">
+					<h6> <i>Medico Solicitante:</i> Doctor Nro 1 </h6>
+					<h6> <i>Fecha			  :</i> 12/10/07 </h6>
+					<h6> <i>Nombre	          :</i> Peluche </h6>
+					<h6> <i>Sexo			  :</i> Macho </h6>
+				</div>
+			</div>
+			<hr  width="99%" size="4" noshade style="color : blue;">
+
+			<div style = "padding:20px" class = "container grey lighten-2">
+				<div class="row">
+					<div class="col s6 ">
+						<label for="FechaProgramada" class="">FechaProgramada</label>
+						<input id="FechaProgramada" type="text" class="datepicker picker__input" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="birthdate_root">
+						<br><br><br><br>
+						<div class="row">
+							<div class="col s6">
+								<a class="waves-effect waves-light btn" href="##">
+									Guardar 
+								</a>
+							</div>
+							<div class="col s6">
+								<a class="waves-effect waves-light btn" href="##">
+									Cancelar
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col s5 offset-s1">
+						
+							<table>
+						        <thead>
+						          <tr>
+						              <th data-field="id">Fecha</th>
+						              <th data-field="name">Hora</th>
+						          </tr>
+						        </thead>
+
+						        <tbody>
+						          <tr>
+						            <td>12/11/2015</td>
+						            <td>3:15 p.m.</td>
+						          </tr>
+						          <tr>
+						             <td>15/11/2015</td>
+						            <td>3:45 p.m.</td>
+						          </tr>
+						          <tr>
+						             <td>16/11/2015</td>
+						            <td>3:15 p.m.</td>
+						          </tr>
+						        </tbody>
+						      </table>	   
+					</div>
+				</div>
+					
+			</div>
+		</div>	
+
+
+
+
+
+
+
+
+			<hr  width="99%" size="4" noshade style="color : blue;">
+		 	<footer class="page-footer #e0e0e0 grey lighten-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p aling="center" class="blue-text"><img src="Imagenes/logo3.png" style="height: 60px; align:center; " >Sistema de Veterinaria ... </p>
+                
+                <p class="blue-text ">Curso    :  Taller de Proyectos 2 </p>
+                <p class="blue-text ">Profesor :  Chavez </p>
+
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="blue-text">Integrantes</h5>
+                <ul>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright blue-text">
+            <div class="container">
+            © 2015 Copyright Text
+            <a class="blue-text right" >Grupo Nro. 4</a>
+            </div>
+          </div>
+        </footer>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script>
+		 $('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 3 // Creates a dropdown of 15 years to control year
+		  });
+					 
+			$(document).ready(function(){
+	    		$('select').material_select();
+	  		});
+			$(document).ready(function(){
+	    		$('ul.tabs').tabs();
+	  		});
+	  		$(document).ready(function(){
+    			$('ul.tabs').tabs('select_tab', 'tab_id');
+  			});
+
+  			$('.modal-trigger').leanModal({
+			      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+			      opacity: .5, // Opacity of modal background
+			      in_duration: 300, // Transition in duration
+			      out_duration: 200, // Transition out duration
+			      ready: function() { alert('Ready'); }, // Callback for Modal open
+			      complete: function() { alert('Closed'); } // Callback for Modal close
+		    	}
+		  	);
+		</script>
+		
+	</body>
+	<!--*********************************************************************************-->
+</html>

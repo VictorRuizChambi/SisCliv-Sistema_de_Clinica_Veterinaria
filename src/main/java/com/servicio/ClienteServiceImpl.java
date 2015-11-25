@@ -1,32 +1,36 @@
 package com.servicio;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.springframework.stereotype.Service;
 
 import com.dao.ICrudDAO;
 import com.modelo.Cliente;
+import com.modelo.Mascota;
+import com.recursos.SQLConstants.SQLMascota;
 @Service(value="clienteService")
 public class ClienteServiceImpl implements ClienteService {
 
 
 	@Resource  
 	private ICrudDAO<Cliente> clienteCrudDAO;
+	@Resource  
+	private ICrudDAO<Mascota> mascotaCrudDAO;
 	
 	@Override
 	public List<Cliente> getClientes() {
-		System.out.println("Esta intentando traer clientes");
+		
 		List<Cliente> clientes=clienteCrudDAO.findAll(Cliente.class);
-		System.out.println(clientes.get(0).getCStNombres());;
 		return clientes;
 	}
 
 	@Override
 	public Cliente getCliente(int cInClientePk) {
-		System.out.println("Esta intentando traer un cliente");
+//		System.out.println("Esta intentando traer un cliente");
 		return clienteCrudDAO.findById(Cliente.class,cInClientePk);
 	}
 
@@ -46,6 +50,13 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public void deleteCliente(int cInClientePk) {
 		
+		Cliente micliente = clienteCrudDAO.findById(Cliente.class,cInClientePk);
+		try {
+			clienteCrudDAO.delete(micliente);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

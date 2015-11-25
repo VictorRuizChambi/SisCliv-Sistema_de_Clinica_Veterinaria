@@ -1,23 +1,9 @@
 package com.modelo;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.recursos.Exclude;
 
 
 /**
@@ -25,16 +11,14 @@ import com.recursos.Exclude;
  * 
  */
 @Entity
-@NamedQueries({
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
-})
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="c_in_cliente_pk")
-	private Integer cInClientePk;
+	private int cInClientePk;
 
 	@Column(name="c_ch_sexo")
 	private String cChSexo;
@@ -44,10 +28,13 @@ public class Cliente implements Serializable {
 	private Date cDtFechaNacimiento;
 
 	@Column(name="c_in_dni")
-	private Integer cInDni;
+	private int cInDni;
 
 	@Column(name="c_in_status")
-	private Integer cInStatus;
+	private int cInStatus;
+
+	@Column(name="c_in_telefono")
+	private int cInTelefono;
 
 	@Column(name="c_st_apellido_materno")
 	private String cStApellidoMaterno;
@@ -65,12 +52,10 @@ public class Cliente implements Serializable {
 	private String cStNombres;
 
 	//bi-directional many-to-one association to Usuario
-	@Exclude
 	@ManyToOne
 	@JoinColumn(name="u_in_usuario_fk")
 	private Usuario usuario;
 
-	@Exclude
 	//bi-directional many-to-one association to Mascota
 	@OneToMany(mappedBy="cliente")
 	private List<Mascota> mascotas;
@@ -116,6 +101,14 @@ public class Cliente implements Serializable {
 
 	public void setCInStatus(int cInStatus) {
 		this.cInStatus = cInStatus;
+	}
+
+	public int getCInTelefono() {
+		return this.cInTelefono;
+	}
+
+	public void setCInTelefono(int cInTelefono) {
+		this.cInTelefono = cInTelefono;
 	}
 
 	public String getCStApellidoMaterno() {

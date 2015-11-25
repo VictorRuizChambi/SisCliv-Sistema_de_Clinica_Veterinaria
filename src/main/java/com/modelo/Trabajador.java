@@ -48,6 +48,8 @@ public class Trabajador implements Serializable {
 	@Column(name="t_st_nombres")
 	private String tStNombres;
 
+	private int telefono;
+
 	//bi-directional many-to-one association to ServicioMascota
 	@OneToMany(mappedBy="trabajador")
 	private List<ServicioMascota> servicioMascotas;
@@ -138,6 +140,14 @@ public class Trabajador implements Serializable {
 
 	public void setTStNombres(String tStNombres) {
 		this.tStNombres = tStNombres;
+	}
+
+	public int getTelefono() {
+		return this.telefono;
+	}
+
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
 	}
 
 	public List<ServicioMascota> getServicioMascotas() {

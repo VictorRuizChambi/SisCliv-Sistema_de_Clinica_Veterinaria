@@ -32,6 +32,10 @@ public class Usuario implements Serializable {
 	@Column(name="u_st_contrasena")
 	private String uStContrasena;
 
+	//bi-directional many-to-one association to Cita
+	@OneToMany(mappedBy="usuario")
+	private List<Cita> citas;
+
 	//bi-directional many-to-one association to Cliente
 	@OneToMany(mappedBy="usuario")
 	private List<Cliente> clientes;
@@ -86,6 +90,28 @@ public class Usuario implements Serializable {
 
 	public void setUStContrasena(String uStContrasena) {
 		this.uStContrasena = uStContrasena;
+	}
+
+	public List<Cita> getCitas() {
+		return this.citas;
+	}
+
+	public void setCitas(List<Cita> citas) {
+		this.citas = citas;
+	}
+
+	public Cita addCita(Cita cita) {
+		getCitas().add(cita);
+		cita.setUsuario(this);
+
+		return cita;
+	}
+
+	public Cita removeCita(Cita cita) {
+		getCitas().remove(cita);
+		cita.setUsuario(null);
+
+		return cita;
 	}
 
 	public List<Cliente> getClientes() {

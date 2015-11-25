@@ -1,0 +1,445 @@
+<html>
+	<!--CABECERA************************************************************************-->
+	<head>
+		<!--Materialize*******************************-->
+		<title>Clinico-GenerarResultado</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!--Materialize*******************************-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href = "css/materialize.min.css">
+		<!--Fin Materialize**************************+-->
+	</head>
+	<!--********************************************************************************-->
+	<!--CUERPO**************************************************************************-->
+	<body class = "blue-grey lighten-3">
+
+		<div class="navbar-fixed">
+			<nav class= "blue-grey darken-1 " style="height:130px;">
+				<div class = "nav-wrapper">
+					<div class="row">
+						<div class="col s1 "  >
+							<img src="Imagenes/logo3.png" class = "responsive-img " style= "margin: auto;"s>
+						</div>
+						<div class="col s11">
+							<h2>VETERINARIA SISCLIV</h2>
+						</div>
+					</div>	
+				</div>
+			</nav>
+		</div>
+		
+		<!--TIUTLOS-->
+		<br><br><br><br>
+		<div style = "padding:20px" class = "container grey lighten-2">
+			<div class="row">
+				<div class="col m2">
+					<img src="Imagenes/usuario.png" class = "responsive-img " style= "margin: auto;"s>
+				</div>
+				<div class="col s5">
+					<h6> <i>N° de Caso :</i> H123 </h6>
+					<h6> <i>Especie    :</i> Perro </h6>
+					<h6> <i>Raza	   :</i> Cruce </h6>
+					<h6> <i>Propietario:</i> Juan Manuel </h6>
+				</div>
+				<div class="col s5">
+					<h6> <i>Medico Solicitante:</i> Doctor Nro 1 </h6>
+					<h6> <i>Fecha			  :</i> 12/10/07 </h6>
+					<h6> <i>Nombre	          :</i> Peluche </h6>
+					<h6> <i>Sexo			  :</i> Macho </h6>
+				</div>
+			</div>
+			<hr  width="99%" size="4" noshade style="color : blue;">
+
+			<div style = "padding:20px" class = "container grey lighten-2">
+			<div class="row">
+				<div class="col s12">
+					<ul class= "tabs">
+						<li class = "tab col s3">
+							<a href="#tab1"  style= "color:45666A;">
+								Uroanalisis
+							</a>
+						</li>
+						<li class = "tab col s5" >
+							<a href="#tab2" style= "color:45666A;">
+								Analisis de Sangre
+							</a>
+						</li>
+						<li class = "tab col s3">
+							<a href="#tab3" style= "color:45666A;">
+								Terapia
+							</a>
+						</li>
+						
+						
+					</ul>
+				</div>	
+				<hr  width="99%" size="4" noshade style="color : blue;">
+				<div style = "padding:10px" class="col s12" id = "tab1">
+					<div class="row">
+						<div class="col s12">
+							<div class="row">
+								<div class="col s6 offset-s6">
+									<h5 aling="center">Valores de Referencia</h5>
+									<div class="col s6">
+										<h6>Canino</h6>
+									</div>
+									<div class="col s6">
+										<h6>Felino</h6>
+									</div>
+									         
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s5">
+						          <input  id="Color" type="text" class="validate">
+						          <label for="Color">Color</label>  
+						        </div>
+						        <DIV class="Col s6 offset-s1">
+						        	<br><br>
+						        	<h6 align="center">Amarillo </h6>
+						        </DIV>
+					    	</div>
+					    	<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="Aspecto" type="text" class="validate">
+						          <label for="Aspecto">Aspecto</label>
+								</div>
+								<div class="Col s6   offset-s1 ">
+						        	<br><br>
+						        	<h6 align="center">Claro </h6>
+						        </div>
+					    	</div>
+							
+							<div class="row">
+								<div class="input-field col s5 ">
+							  		<input  id="Densidad" type="text" class="validate">
+					          		<label for="Densidad">Densidad</label>
+								</div>
+								<div class="Col s6   offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	1023-1035
+						        	</div>
+						        	<div class="col s6">
+						        	1023-1035
+						        	</div>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="pH" type="text" class="validate">
+						          <label for="pH">pH</label>
+								</div>
+								<div class="Col s6  offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	5.5 - 6.5
+						        	</div>
+						        	<div class="col s6">
+						        	5.0-6.0
+						        	</div>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="Proteinas" type="text" class="validate">
+						          <label for="Proteinas">Proteinas</label>
+								</div>
+								<div class="Col s6 offset-s1">
+						        	<br><br>
+						        	<h6 align="center">Negativo o Trazas</h6>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="Billiaubuinos" type="text" class="validate">
+						          <label for="Billiaubuinos">Billiaubuinos</label>
+								</div>
+								<div class="Col s6 offset-s1">
+						        	<br><br>
+						        	<h6 align="center">Negativo </h6>
+						        </div>
+							</div>
+														
+							
+							<!--<div class="input-field col s6 ">
+							  <input  id="Urobilinogeno" type="text" class="validate">
+					          <label for="Urobilinogeno">Urobilinogeno</label>
+							</div>
+							<div class="input-field col s6 ">
+							  <input  id="Glucosa" type="text" class="validate">
+					          <label for="Glucosa">Glucosa</label>
+							</div> -->
+						</div>						
+					</div>
+					<div class="row">
+					    <div class="input-field col s12">
+					          <i class="material-icons prefix">mode_edit</i>
+					          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+					          <label for="icon_prefix2">Observaciones</label>
+					    </div>
+					</div>
+					<div class="row">
+						
+						<div class="col s4 offset-s4">
+							<a class="waves-effect waves-light btn" href="##">
+								Actualizar
+							</a>
+						</div>
+						<div class="col s4">
+							<a class="waves-effect waves-light btn" href="##">
+								<i class="material-icons left">cloud</i>Guardar
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+				<div style = "padding:10px" class="col s12" id = "tab2">
+					<div class="row">
+						<div class="col s12">
+							<div class="row">
+								<div class="col s6 offset-s6">
+									<h5 aling="center">Valores de Referencia</h5>
+									<div class="col s6">
+										<h6>Canino</h6>
+									</div>
+									<div class="col s6">
+										<h6>Felino</h6>
+									</div>
+									         
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s5">
+						          <input  id="Leucocitos" type="text" class="validate">
+						          <label for="Leucocitos">Leucocitos</label>  
+						        </div>
+						        <div class="Col s6   offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	8000 - 17000
+						        	</div>
+						        	<div class="col s6">
+						        	5500-19000
+						        	</div>
+						        </div>
+					    	</div>
+					    	<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="Hematies" type="text" class="validate">
+						          <label for="Hematies">Hematies</label>
+								</div>
+								<div class="Col s6   offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	5.5 - 6.5 millo
+						        	</div>
+						        	<div class="col s6">
+						        	5 - 10 millo
+						        	</div>
+						        </div>
+					    	</div>
+							
+							<div class="row">
+								<div class="input-field col s5 ">
+							  		<input  id="Hematocrito" type="text" class="validate">
+					          		<label for="Hematocrito">Hematocrito</label>
+								</div>
+								<div class="Col s6   offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	37-55
+						        	</div>
+						        	<div class="col s6">
+						        	24-45
+						        	</div>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="Hemoglobina" type="text" class="validate">
+						          <label for="Hemoglobina">Hemoglobina</label>
+								</div>
+								<div class="Col s6  offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	12-18
+						        	</div>
+						        	<div class="col s6">
+						        	8-15
+						        	</div>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="VMC" type="text" class="validate">
+						          <label for="VMC">VMC</label>
+								</div>
+								<div class="Col s6  offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	60-77
+						        	</div>
+						        	<div class="col s6">
+						        	39-55
+						        	</div>
+						        </div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s5 ">
+								  <input  id="CHCM" type="text" class="validate">
+						          <label for="CHCM">CHCM</label>
+								</div>
+								<div class="Col s6  offset-s1">
+						        	<br><br>
+						        	<div class="col s6">
+						        	32-37
+						        	</div>
+						        	<div class="col s6">
+						        	30-35
+						        	</div>
+						        </div>
+							</div>
+														
+							
+							<!--<div class="input-field col s6 ">
+							  <input  id="Urobilinogeno" type="text" class="validate">
+					          <label for="Urobilinogeno">Urobilinogeno</label>
+							</div>
+							<div class="input-field col s6 ">
+							  <input  id="Glucosa" type="text" class="validate">
+					          <label for="Glucosa">Glucosa</label>
+							</div> -->
+						</div>						
+					</div>
+					<div class="row">
+					    <div class="input-field col s12">
+					          <i class="material-icons prefix">mode_edit</i>
+					          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+					          <label for="icon_prefix2">Observaciones</label>
+					    </div>
+					</div>
+					<div class="row">
+						
+						<div class="col s4 offset-s4">
+							<a class="waves-effect waves-light btn" href="##">
+								Actualizar
+							</a>
+						</div>
+						<div class="col s4">
+							<a class="waves-effect waves-light btn" href="##">
+								<i class="material-icons left">cloud</i>Guardar
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+				<div style = "padding:10px" class="col s12" id = "tab3">
+					<div class="row">
+					    <div class="input-field col s12">
+					          <i class="material-icons prefix">mode_edit</i>
+					          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+					          <label for="icon_prefix2">Observaciones</label>
+					    </div>
+					</div>
+					<div class="row">
+						
+						<div class="col s4 offset-s4">
+							<a class="waves-effect waves-light btn" href="##">
+								Actualizar
+							</a>
+						</div>
+						<div class="col s4">
+							<a class="waves-effect waves-light btn" href="##">
+								<i class="material-icons left">cloud</i>Guardar
+							</a>
+						</div>
+
+					</div>
+				</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<hr  width="99%" size="4" noshade style="color : blue;">
+		 	<footer class="page-footer #e0e0e0 grey lighten-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p aling="center" class="blue-text"><img src="Imagenes/logo3.png" style="height: 60px; align:center; " >Sistema de Veterinaria ... </p>
+                
+                <p class="blue-text ">Curso    :  Taller de Proyectos 2 </p>
+                <p class="blue-text ">Profesor :  Chavez </p>
+
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="blue-text">Integrantes</h5>
+                <ul>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
+                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright blue-text">
+            <div class="container">
+            © 2015 Copyright Text
+            <a class="blue-text right" >Grupo Nro. 4</a>
+            </div>
+          </div>
+        </footer>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script>
+			 
+			$(document).ready(function(){
+	    		$('select').material_select();
+	  		});
+			$(document).ready(function(){
+	    		$('ul.tabs').tabs();
+	  		});
+	  		$(document).ready(function(){
+    			$('ul.tabs').tabs('select_tab', 'tab_id');
+  			});
+
+  			$('.modal-trigger').leanModal({
+			      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+			      opacity: .5, // Opacity of modal background
+			      in_duration: 300, // Transition in duration
+			      out_duration: 200, // Transition out duration
+			      ready: function() { alert('Ready'); }, // Callback for Modal open
+			      complete: function() { alert('Closed'); } // Callback for Modal close
+		    	}
+		  	);
+		</script>
+		
+	</body>
+	<!--*********************************************************************************-->
+</html>

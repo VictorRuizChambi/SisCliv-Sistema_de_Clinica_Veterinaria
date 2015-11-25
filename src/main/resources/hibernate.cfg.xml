@@ -18,5 +18,6 @@
        <mapping class="com.modelo.Trabajador"/>
        <mapping class="com.modelo.Usuario"/>
        <mapping class="com.modelo.ValorServicio"/>
+       <mapping class="com.modelo.Cita"/>
 	</session-factory>         
 </hibernate-configuration>

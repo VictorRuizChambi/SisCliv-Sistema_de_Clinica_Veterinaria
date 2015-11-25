@@ -13,7 +13,10 @@ public class SQLConstants {
 		public static final String UPDATE_BY_PERSONID = "UserAccoung.updateByPersonId";
 		public static final String UPDATE_EMAIL_BY_ID = "UserAccoung.updateEmailById";
 	}
-	public static class SQLCliente{
-		
+	public static class SQLMascota{
+		public static final String QUERY_FIND_BY_CLIENTE= "Mascota.findByCliente";
+	}
+	public static class SQLFuncion{
+		public static final String QUERY_FIND_FUNCION_BY_OBRAID= "asaoiishda";
 	}
 }

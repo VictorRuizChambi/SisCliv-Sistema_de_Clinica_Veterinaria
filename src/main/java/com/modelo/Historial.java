@@ -2,6 +2,7 @@ package com.modelo;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -19,10 +20,16 @@ public class Historial implements Serializable {
 	@Column(name="h_in_historial_pk")
 	private int hInHistorialPk;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name="h_dt_fecha_de_creacion")
+	private Date hDtFechaDeCreacion;
+
+	@Column(name="h_in_status")
+	private int hInStatus;
+
 	//bi-directional many-to-one association to Mascota
-	@ManyToOne
-	@JoinColumn(name="m_in_mascota_fk")
-	private Mascota mascota;
+	@OneToMany(mappedBy="historial")
+	private List<Mascota> mascotas;
 
 	//bi-directional many-to-one association to ServicioMascota
 	@OneToMany(mappedBy="historial")
@@ -39,12 +46,42 @@ public class Historial implements Serializable {
 		this.hInHistorialPk = hInHistorialPk;
 	}
 
-	public Mascota getMascota() {
-		return this.mascota;
+	public Date getHDtFechaDeCreacion() {
+		return this.hDtFechaDeCreacion;
 	}
 
-	public void setMascota(Mascota mascota) {
-		this.mascota = mascota;
+	public void setHDtFechaDeCreacion(Date hDtFechaDeCreacion) {
+		this.hDtFechaDeCreacion = hDtFechaDeCreacion;
+	}
+
+	public int getHInStatus() {
+		return this.hInStatus;
+	}
+
+	public void setHInStatus(int hInStatus) {
+		this.hInStatus = hInStatus;
+	}
+
+	public List<Mascota> getMascotas() {
+		return this.mascotas;
+	}
+
+	public void setMascotas(List<Mascota> mascotas) {
+		this.mascotas = mascotas;
+	}
+
+	public Mascota addMascota(Mascota mascota) {
+		getMascotas().add(mascota);
+		mascota.setHistorial(this);
+
+		return mascota;
+	}
+
+	public Mascota removeMascota(Mascota mascota) {
+		getMascotas().remove(mascota);
+		mascota.setHistorial(null);
+
+		return mascota;
 	}
 
 	public List<ServicioMascota> getServicioMascotas() {

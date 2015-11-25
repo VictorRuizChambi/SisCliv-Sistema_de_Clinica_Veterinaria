@@ -1,114 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         metadata-complete="false">
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 
-	<context-param>
-		<param-name>log4jConfigLocation</param-name>
-		<param-value>classpath:log4j.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
+  <servlet>
+    <servlet-name>appServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 
-	<servlet>
-		<servlet-name>spring</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-  	  
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.css</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.js</url-pattern>
- 	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.jpg</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.png</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.eot</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.ttf</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.wof</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.gif</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.woff</url-pattern>
-  	</servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.jar</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.svg</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.json</url-pattern>
-  	</servlet-mapping>    
-  	<servlet-mapping>
-	    <servlet-name>default</servlet-name>
-    	<url-pattern>*.html</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.mp3</url-pattern>
-  	</servlet-mapping>
-   	<servlet-mapping>
-	    <servlet-name>default</servlet-name>
-    	<url-pattern>*.mp4</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.ogg</url-pattern>
-  	</servlet-mapping>
- 	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.pdf</url-pattern>
-  	</servlet-mapping>   
-  	<servlet-mapping>
-    	<servlet-name>default</servlet-name>
-    	<url-pattern>*.mpeg</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-	    <servlet-name>default</servlet-name>
-    	<url-pattern>*.woff2</url-pattern>
-  	</servlet-mapping>
-    <servlet-mapping>
-	    <servlet-name>default</servlet-name>
-    	<url-pattern>*.ico</url-pattern>
-  	</servlet-mapping>
-  	
-  	<welcome-file-list>
-    	<welcome-file>index.html</welcome-file>
-  	</welcome-file-list>
-  
+    <load-on-startup>1</load-on-startup>
+    <async-supported>true</async-supported>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>appServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
 </web-app>
-

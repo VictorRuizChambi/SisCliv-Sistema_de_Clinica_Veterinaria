@@ -20,7 +20,7 @@ public class Perfil implements Serializable {
 	private int pInPerfilPk;
 
 	@Column(name="p_in_status")
-	private String pInStatus;
+	private int pInStatus;
 
 	@Column(name="p_st_descripcion")
 	private String pStDescripcion;
@@ -47,11 +47,11 @@ public class Perfil implements Serializable {
 		this.pInPerfilPk = pInPerfilPk;
 	}
 
-	public String getPInStatus() {
+	public int getPInStatus() {
 		return this.pInStatus;
 	}
 
-	public void setPInStatus(String pInStatus) {
+	public void setPInStatus(int pInStatus) {
 		this.pInStatus = pInStatus;
 	}
 

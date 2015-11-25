@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"> 
+    
+<hibernate-configuration>
+    <session-factory>        
+       <mapping class="com.modelo.Cliente"/>
+       <mapping class="com.modelo.Especie"/>
+       <mapping class="com.modelo.Historial"/>
+       <mapping class="com.modelo.Mascota"/>
+       <mapping class="com.modelo.NombreCampo"/>
+       <mapping class="com.modelo.Opcion"/>
+       <mapping class="com.modelo.Perfil"/>
+       <mapping class="com.modelo.Servicio"/>
+       <mapping class="com.modelo.ServicioMascota"/>
+       <mapping class="com.modelo.TipoCampo"/>
+       <mapping class="com.modelo.Trabajador"/>
+       <mapping class="com.modelo.Usuario"/>
+       <mapping class="com.modelo.ValorServicio"/>
+	</session-factory>         
+</hibernate-configuration>
