@@ -1,9 +1,22 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -27,13 +40,15 @@ public class Historial implements Serializable {
 	@Column(name="h_in_status")
 	private int hInStatus;
 
-	//bi-directional many-to-one association to Mascota
-	@OneToMany(mappedBy="historial")
-	private List<Mascota> mascotas;
+	@ManyToOne
+	@JoinColumn(name="m_in_mascota_fk")
+	private Mascota mascota;
+
 
 	//bi-directional many-to-one association to ServicioMascota
+	@Exclude
 	@OneToMany(mappedBy="historial")
-	private List<ServicioMascota> servicioMascotas;
+	private List<ServicioMascota> servicioMascota;
 
 	public Historial() {
 	}
@@ -62,48 +77,21 @@ public class Historial implements Serializable {
 		this.hInStatus = hInStatus;
 	}
 
-	public List<Mascota> getMascotas() {
-		return this.mascotas;
+	public Mascota getMascota() {
+		return this.mascota;
 	}
 
-	public void setMascotas(List<Mascota> mascotas) {
-		this.mascotas = mascotas;
+	public void setMascota(Mascota mascota) {
+		this.mascota = mascota;
 	}
 
-	public Mascota addMascota(Mascota mascota) {
-		getMascotas().add(mascota);
-		mascota.setHistorial(this);
-
-		return mascota;
+	public List<ServicioMascota> getServicioMascota() {
+		return this.servicioMascota;
 	}
 
-	public Mascota removeMascota(Mascota mascota) {
-		getMascotas().remove(mascota);
-		mascota.setHistorial(null);
-
-		return mascota;
+	public void setServicioMascota(List<ServicioMascota> servicioMascota) {
+		this.servicioMascota = servicioMascota;
 	}
 
-	public List<ServicioMascota> getServicioMascotas() {
-		return this.servicioMascotas;
-	}
-
-	public void setServicioMascotas(List<ServicioMascota> servicioMascotas) {
-		this.servicioMascotas = servicioMascotas;
-	}
-
-	public ServicioMascota addServicioMascota(ServicioMascota servicioMascota) {
-		getServicioMascotas().add(servicioMascota);
-		servicioMascota.setHistorial(this);
-
-		return servicioMascota;
-	}
-
-	public ServicioMascota removeServicioMascota(ServicioMascota servicioMascota) {
-		getServicioMascotas().remove(servicioMascota);
-		servicioMascota.setHistorial(null);
-
-		return servicioMascota;
-	}
 
 }

@@ -1,8 +1,19 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -34,6 +45,7 @@ public class Opcion implements Serializable {
 	private Perfil perfil;
 
 	//bi-directional many-to-one association to Servicio
+	@Exclude
 	@OneToMany(mappedBy="opcion")
 	private List<Servicio> servicios;
 
@@ -88,18 +100,5 @@ public class Opcion implements Serializable {
 		this.servicios = servicios;
 	}
 
-	public Servicio addServicio(Servicio servicio) {
-		getServicios().add(servicio);
-		servicio.setOpcion(this);
-
-		return servicio;
-	}
-
-	public Servicio removeServicio(Servicio servicio) {
-		getServicios().remove(servicio);
-		servicio.setOpcion(null);
-
-		return servicio;
-	}
 
 }

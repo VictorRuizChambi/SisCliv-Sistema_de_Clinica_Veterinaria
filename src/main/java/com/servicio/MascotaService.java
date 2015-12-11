@@ -14,7 +14,7 @@ public interface MascotaService {
 
 	public List<Mascota> getMascotas();
 	public Mascota getMascota(int cInMascotaPk);
-	public void saveMascota(Mascota objMascota);
+	public void saveMascota(Mascota objMascota, int cInClientePk, int eInEspeciePk);
 	public void updatetMascota(Mascota objMascota);
 	public void deleteMascota(int cInMascotaPk);
 	public List<Object[]> getMascotaporHistorial(int hInHistorialPK);

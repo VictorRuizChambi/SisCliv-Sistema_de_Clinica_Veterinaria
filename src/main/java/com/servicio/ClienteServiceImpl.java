@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.dao.ICrudDAO;
 import com.modelo.Cliente;
 import com.modelo.Mascota;
-import com.recursos.SQLConstants.SQLMascota;
+import com.recursos.SQLConstants.SQLCliente;
 @Service(value="clienteService")
 public class ClienteServiceImpl implements ClienteService {
 
@@ -23,8 +23,9 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Override
 	public List<Cliente> getClientes() {
-		
-		List<Cliente> clientes=clienteCrudDAO.findAll(Cliente.class);
+		Map<String, Object> objMap = new HashMap<String, Object>();
+		objMap.put("cInStatus",1);
+		List<Cliente> clientes=clienteCrudDAO.findByNamedQuery(SQLCliente.QUERY_FIND_BY_CLIENTE_BY_STATUS, objMap);//findAll(Cliente.class);
 		return clientes;
 	}
 
@@ -49,14 +50,22 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Override
 	public void deleteCliente(int cInClientePk) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("cInClientePk",cInClientePk);
 		
-		Cliente micliente = clienteCrudDAO.findById(Cliente.class,cInClientePk);
-		try {
-			clienteCrudDAO.delete(micliente);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		clienteCrudDAO.executeUpdateNamedQuery(SQLCliente.QUERY_DELETE_BY_CLIENTE_PK, parameters);
+
 	}
+	
+	public Cliente getClienteByUsuarioPk(int uInUsuarioPk){
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("uInUsuarioPk",uInUsuarioPk);
+		List<Cliente> clientes=clienteCrudDAO.findByNamedQuery(SQLCliente.QUERY_FIND_BY_USUARIO_PK, parameters);
+		if(clientes.size()==1)
+		return clientes.get(0);
+		else
+		return null;			
+	}
+
 
 }

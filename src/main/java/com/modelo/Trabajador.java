@@ -1,9 +1,22 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -51,6 +64,7 @@ public class Trabajador implements Serializable {
 	private int telefono;
 
 	//bi-directional many-to-one association to ServicioMascota
+	@Exclude
 	@OneToMany(mappedBy="trabajador")
 	private List<ServicioMascota> servicioMascotas;
 
@@ -158,19 +172,6 @@ public class Trabajador implements Serializable {
 		this.servicioMascotas = servicioMascotas;
 	}
 
-	public ServicioMascota addServicioMascota(ServicioMascota servicioMascota) {
-		getServicioMascotas().add(servicioMascota);
-		servicioMascota.setTrabajador(this);
-
-		return servicioMascota;
-	}
-
-	public ServicioMascota removeServicioMascota(ServicioMascota servicioMascota) {
-		getServicioMascotas().remove(servicioMascota);
-		servicioMascota.setTrabajador(null);
-
-		return servicioMascota;
-	}
 
 	public Usuario getUsuario() {
 		return this.usuario;

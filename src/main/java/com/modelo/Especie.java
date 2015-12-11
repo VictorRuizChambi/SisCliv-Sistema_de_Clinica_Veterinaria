@@ -1,8 +1,17 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -26,6 +35,7 @@ public class Especie implements Serializable {
 	private int eInStatus;
 
 	//bi-directional many-to-one association to Mascota
+	@Exclude
 	@OneToMany(mappedBy="especie")
 	private List<Mascota> mascotas;
 

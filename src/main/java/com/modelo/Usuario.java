@@ -1,9 +1,24 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
+import com.recursos.SQLConstants.SQLUsuario;
 
 
 /**
@@ -11,7 +26,10 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
+@NamedQueries({
+@NamedQuery(name=SQLUsuario.QUERY_FIND_USER_BY_DNI, query="SELECT u FROM Usuario u Where u.uInDni=:uInDni"),
+@NamedQuery(name=SQLUsuario.QUERY_VERIFICA_USUARIO, query="SELECT u FROM Usuario u Where u.uInDni =:uInDni and u.uStContrasena =:uStContrasena")
+})
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -33,14 +51,17 @@ public class Usuario implements Serializable {
 	private String uStContrasena;
 
 	//bi-directional many-to-one association to Cita
+	@Exclude
 	@OneToMany(mappedBy="usuario")
 	private List<Cita> citas;
-
+	
 	//bi-directional many-to-one association to Cliente
+	@Exclude
 	@OneToMany(mappedBy="usuario")
 	private List<Cliente> clientes;
 
 	//bi-directional many-to-one association to Trabajador
+	@Exclude
 	@OneToMany(mappedBy="usuario")
 	private List<Trabajador> trabajadors;
 

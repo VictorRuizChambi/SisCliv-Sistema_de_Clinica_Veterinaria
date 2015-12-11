@@ -15,4 +15,5 @@ public interface ClienteService {
 	public void saveCliente(Cliente objCliente);
 	public void updatetCliente(Cliente objCliente);
 	public void deleteCliente(int cInClientePk);
+	public Cliente getClienteByUsuarioPk(int uInUsuarioPk);
 }

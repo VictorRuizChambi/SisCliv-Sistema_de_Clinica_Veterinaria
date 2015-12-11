@@ -1,8 +1,24 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
+import com.recursos.SQLConstants.SQLMascota;
 
 
 /**
@@ -10,7 +26,10 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQuery(name="Mascota.findAll", query="SELECT m FROM Mascota m")
+@NamedQueries({
+@NamedQuery(name=SQLMascota.QUERY_DELETE_BY_MASCOTA_PK, query="UPDATE Mascota m SET m.mInStatus=0 WHERE m.mInMascotaPk=:mInMascotaPk"),
+@NamedQuery(name=SQLMascota.QUERY_FIND_BY_STATUS, query="SELECT m FROM Mascota m WHERE m.mInStatus=1")
+})
 public class Mascota implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -50,10 +69,19 @@ public class Mascota implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="e_in_especie_fk")
 	private Especie especie;
-
+	
 	//bi-directional many-to-one association to Historial
-	@ManyToOne
-	private Historial historial;
+	@Exclude
+	@OneToMany(mappedBy="mascota")
+	private List<Historial> historials;
+
+	public List<Historial> getHistorials() {
+		return historials;
+	}
+
+	public void setHistorials(List<Historial> historials) {
+		this.historials = historials;
+	}
 
 	public Mascota() {
 	}
@@ -138,12 +166,5 @@ public class Mascota implements Serializable {
 		this.especie = especie;
 	}
 
-	public Historial getHistorial() {
-		return this.historial;
-	}
-
-	public void setHistorial(Historial historial) {
-		this.historial = historial;
-	}
 
 }

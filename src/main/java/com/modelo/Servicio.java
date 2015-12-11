@@ -1,8 +1,19 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
+import com.recursos.Exclude;
 
 
 /**
@@ -19,6 +30,18 @@ public class Servicio implements Serializable {
 	@Column(name="s_in_servicio_pk")
 	private int sInServicioPk;
 
+	@ManyToOne
+	@JoinColumn(name="o_in_opcion_fk")
+	private Opcion opcion;
+	
+	public Opcion getOpcion() {
+		return opcion;
+	}
+
+	public void setOpcion(Opcion opcion) {
+		this.opcion = opcion;
+	}
+
 	@Column(name="s_db_precio")
 	private double sDbPrecio;
 
@@ -28,14 +51,10 @@ public class Servicio implements Serializable {
 	@Column(name="s_st_nombre")
 	private String sStNombre;
 
-	//bi-directional many-to-one association to NombreCampo
+	//bi-directional many-to-one association to ServicioMascota
+	@Exclude
 	@OneToMany(mappedBy="servicio")
-	private List<NombreCampo> nombreCampos;
-
-	//bi-directional many-to-one association to Opcion
-	@ManyToOne
-	@JoinColumn(name="o_in_opcion_fk")
-	private Opcion opcion;
+	private List<ServicioMascota> servicioMascotas;
 
 	public Servicio() {
 	}
@@ -72,34 +91,26 @@ public class Servicio implements Serializable {
 		this.sStNombre = sStNombre;
 	}
 
-	public List<NombreCampo> getNombreCampos() {
-		return this.nombreCampos;
+	public List<ServicioMascota> getServicioMascotas() {
+		return this.servicioMascotas;
 	}
 
-	public void setNombreCampos(List<NombreCampo> nombreCampos) {
-		this.nombreCampos = nombreCampos;
+	public void setServicioMascotas(List<ServicioMascota> servicioMascotas) {
+		this.servicioMascotas = servicioMascotas;
 	}
 
-	public NombreCampo addNombreCampo(NombreCampo nombreCampo) {
-		getNombreCampos().add(nombreCampo);
-		nombreCampo.setServicio(this);
+	public ServicioMascota addServicioMascota(ServicioMascota servicioMascota) {
+		getServicioMascotas().add(servicioMascota);
+		servicioMascota.setServicio(this);
 
-		return nombreCampo;
+		return servicioMascota;
 	}
 
-	public NombreCampo removeNombreCampo(NombreCampo nombreCampo) {
-		getNombreCampos().remove(nombreCampo);
-		nombreCampo.setServicio(null);
+	public ServicioMascota removeServicioMascota(ServicioMascota servicioMascota) {
+		getServicioMascotas().remove(servicioMascota);
+		servicioMascota.setServicio(null);
 
-		return nombreCampo;
-	}
-
-	public Opcion getOpcion() {
-		return this.opcion;
-	}
-
-	public void setOpcion(Opcion opcion) {
-		this.opcion = opcion;
+		return servicioMascota;
 	}
 
 }

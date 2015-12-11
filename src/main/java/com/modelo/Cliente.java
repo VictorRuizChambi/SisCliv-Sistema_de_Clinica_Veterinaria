@@ -1,9 +1,25 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.Exclude;
+import com.recursos.SQLConstants.SQLCliente;
+import com.recursos.SQLConstants.SQLUsuario;
 
 
 /**
@@ -11,7 +27,14 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
+@NamedQueries({
+	@NamedQuery(name=SQLCliente.QUERY_FIND_BY_CLIENTE_BY_STATUS, query="SELECT c FROM Cliente c Where c.cInStatus=:cInStatus"),
+	@NamedQuery(name=SQLCliente.QUERY_DELETE_BY_CLIENTE_PK, query="UPDATE Cliente c set c.cInStatus=0 Where c.cInClientePk=:cInClientePk"),
+	@NamedQuery(name=SQLCliente.QUERY_FIND_BY_USUARIO_PK, query="SELECT c FROM Cliente c Where c.usuario.uInUsuarioPk=:uInUsuarioPk")
+	
+})
+
+
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -52,11 +75,13 @@ public class Cliente implements Serializable {
 	private String cStNombres;
 
 	//bi-directional many-to-one association to Usuario
+	
 	@ManyToOne
 	@JoinColumn(name="u_in_usuario_fk")
 	private Usuario usuario;
 
 	//bi-directional many-to-one association to Mascota
+	@Exclude
 	@OneToMany(mappedBy="cliente")
 	private List<Mascota> mascotas;
 

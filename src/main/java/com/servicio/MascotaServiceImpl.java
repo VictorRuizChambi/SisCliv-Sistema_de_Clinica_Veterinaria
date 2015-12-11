@@ -1,14 +1,19 @@
 package com.servicio;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.ICrudDAO;
+import com.modelo.Cliente;
+import com.modelo.Historial;
 import com.modelo.Mascota;
+import com.recursos.SQLConstants.SQLMascota;
 
 @Service(value="mascotaService")
 public class MascotaServiceImpl implements MascotaService {
@@ -16,12 +21,18 @@ public class MascotaServiceImpl implements MascotaService {
 
 	@Resource  
 	private ICrudDAO<Mascota> mascotaCrudDAO;
+	@Autowired
+	ClienteService clienteService;
+	@Autowired
+	EspecieService especieService;
 
+	@Resource  
+	private ICrudDAO<Historial> historialDAO;
 	
 	@Override
 	public List<Mascota> getMascotas() {
 
-		return mascotaCrudDAO.findAll(Mascota.class);
+		return mascotaCrudDAO.findByNamedQuery(SQLMascota.QUERY_FIND_BY_STATUS, null);
 	}
 
 	@Override
@@ -31,7 +42,14 @@ public class MascotaServiceImpl implements MascotaService {
 	}
 
 	@Override
-	public void saveMascota(Mascota objMascota) {
+	public void saveMascota(Mascota objMascota, int cInClientePk, int eInEspeciePk) {
+		
+		Cliente objCliente=clienteService.getCliente(cInClientePk);
+		objMascota.setCliente(objCliente);
+		objMascota.setEspecie(especieService.getEspecie(eInEspeciePk));
+		objMascota.setMStApellidoMaterno(objCliente.getCStApellidoMaterno());
+		objMascota.setMStApellidoPaterno(objCliente.getCStApellidoPaterno());
+//		objMascota.setHistorial(historialDAO.findById(Historial.class, 1));
 		mascotaCrudDAO.persist(objMascota);
 		
 	}
@@ -45,13 +63,13 @@ public class MascotaServiceImpl implements MascotaService {
 	
 	@Override
 	public void deleteMascota(int mInMascotaPk) {
+		
+		System.out.println("ESTOY ELIMINANDO");
 		Mascota objMascota = mascotaCrudDAO.findById(Mascota.class,mInMascotaPk);
-		try {
-			mascotaCrudDAO.delete(objMascota);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Map<String,Object> parameters=new HashMap<String,Object>();
+		parameters.put("mInMascotaPk",mInMascotaPk);
+		mascotaCrudDAO.executeUpdateNamedQuery(SQLMascota.QUERY_DELETE_BY_MASCOTA_PK, parameters);
+		
 	}
 
 	@Override

@@ -1,8 +1,23 @@
 package com.modelo;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.recursos.SQLConstants.SQLSHistorial;
+import com.recursos.SQLConstants.SQLServicioMascota;
 
 
 /**
@@ -11,7 +26,10 @@ import java.util.List;
  */
 @Entity
 @Table(name="servicio_mascota")
-@NamedQuery(name="ServicioMascota.findAll", query="SELECT s FROM ServicioMascota s")
+@NamedQueries({
+@NamedQuery(name=SQLServicioMascota.QUERY_FIND_CONSULTA_ATENDIDO_DAY, query="SELECT s FROM ServicioMascota s WHERE s.smInAtendido=:smInAtendido and s.smDtFechaServicio=:smDtFechaServicio and s.servicio.sInServicioPk=:sInServicioPk"),
+@NamedQuery(name=SQLSHistorial.QUERY_FIND_SERVICIOMASCOTA_BY_USUARIOPK,query="SELECT s FROM ServicioMascota s Where s.historial.mascota.cliente.usuario.uInUsuarioPk=:uInUsuarioPk")
+})
 public class ServicioMascota implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,19 +38,42 @@ public class ServicioMascota implements Serializable {
 	@Column(name="sm_in_servicio_mascota_pk")
 	private int smInServicioMascotaPk;
 
-	//bi-directional many-to-one association to Historial
 	@ManyToOne
 	@JoinColumn(name="h_in_historial_fk")
 	private Historial historial;
+	
+	public Historial getHistorial() {
+		return historial;
+	}
 
-	//bi-directional many-to-one association to Trabajador
+	public void setHistorial(Historial historial) {
+		this.historial = historial;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="sm_dt_fecha_servicio")
+	private Date smDtFechaServicio;
+
+	@Column(name="sm_in_atendido")
+	private int smInAtendido;
+
+
 	@ManyToOne
 	@JoinColumn(name="t_in_trabajador_fk")
 	private Trabajador trabajador;
 
-	//bi-directional many-to-one association to ValorServicio
-	@OneToMany(mappedBy="servicioMascota")
-	private List<ValorServicio> valorServicios;
+	public Trabajador getTrabajador() {
+		return trabajador;
+	}
+
+	public void setTrabajador(Trabajador trabajador) {
+		this.trabajador = trabajador;
+	}
+
+	//bi-directional many-to-one association to Servicio
+	@ManyToOne
+	@JoinColumn(name="s_in_servicio_fk")
+	private Servicio servicio;
 
 	public ServicioMascota() {
 	}
@@ -45,42 +86,28 @@ public class ServicioMascota implements Serializable {
 		this.smInServicioMascotaPk = smInServicioMascotaPk;
 	}
 
-	public Historial getHistorial() {
-		return this.historial;
+	public Date getSmDtFechaServicio() {
+		return this.smDtFechaServicio;
 	}
 
-	public void setHistorial(Historial historial) {
-		this.historial = historial;
+	public void setSmDtFechaServicio(Date smDtFechaServicio) {
+		this.smDtFechaServicio = smDtFechaServicio;
 	}
 
-	public Trabajador getTrabajador() {
-		return this.trabajador;
+	public int getSmInAtendido() {
+		return this.smInAtendido;
 	}
 
-	public void setTrabajador(Trabajador trabajador) {
-		this.trabajador = trabajador;
+	public void setSmInAtendido(int smInAtendido) {
+		this.smInAtendido = smInAtendido;
 	}
 
-	public List<ValorServicio> getValorServicios() {
-		return this.valorServicios;
+	public Servicio getServicio() {
+		return this.servicio;
 	}
 
-	public void setValorServicios(List<ValorServicio> valorServicios) {
-		this.valorServicios = valorServicios;
-	}
-
-	public ValorServicio addValorServicio(ValorServicio valorServicio) {
-		getValorServicios().add(valorServicio);
-		valorServicio.setServicioMascota(this);
-
-		return valorServicio;
-	}
-
-	public ValorServicio removeValorServicio(ValorServicio valorServicio) {
-		getValorServicios().remove(valorServicio);
-		valorServicio.setServicioMascota(null);
-
-		return valorServicio;
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
 
 }

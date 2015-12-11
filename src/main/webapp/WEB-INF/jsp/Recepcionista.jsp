@@ -1,28 +1,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
+<!DOCTYPE html>
+<html ng-app="miapp">
 	<head>
 		<title>Siscliv - Recepcionista</title>
-		<link rel="stylesheet" href = "<c:url value='/resources/css/materialize.min.css'/>">
+		<link rel="stylesheet" href = "<c:url value='/resources/Otros/css/materialize.min.css'/>">
 		<link href="<c:url value='https://fonts.googleapis.com/icon?family=Material+Icons'/>" rel="stylesheet">
 	</head>
-	<body class = "blue-grey lighten-3">
+	<body class = "blue-grey lighten-3" ng-controller="micontrolador">
 
 		<div class="navbar-fixed">
 			<nav class = "blue-grey darken-1" style= "height:80px;">
 			    <div class="nav-wrapper">
 			    	<a href="#!" class="brand-logo">
-				      	<img src="<c:url value="Imagenes/logo3.png"/>" class = "responsive-img " style= "padding:10px;height:60px;">
+				      	<img src="<c:url value='/resources/Otros/Imagenes/logo3.png'/>" class = "responsive-img " style= "padding:10px;height:60px;">
 				      	Siscliv - Recepcionista
 			    	</a>
 			      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 			      	<ul class="right hide-on-med-and-down">
-			      		<li><a href="<c:url value='Inicio'/>">Inicio</a></li>
-			        	<li><a href="<c:url value='LoguinTrabajador.html'/>">Salir</a></li>
+			      		<li><a href="Inicio.html">Inicio</a></li>
+			        	<li><a href="Inicio.html">Salir</a></li>
 			      	</ul>
 			      	<ul class="side-nav" id="mobile-demo">
-			        	<li><a href="<c:url value='Inicio'/>">Inicio</a></li>
-			        	<li><a href="<c:url value='LoguinTrabajador.html'/>">Salir</a></li>
+			        	<li><a href="Inicio.html">Inicio</a></li>
+			        	<li><a href="Inicio.html">Salir</a></li>
 			      	</ul>
 			    </div>
 			 </nav>
@@ -65,76 +66,51 @@
 		<div class= "container grey lighten-2 z-depth-1" id = "tab1" style = "padding:20px;width:80%;min-width:800px">
 			Relacion de Mascotas
 			<div class="row">
+<!-- 			    <div class="input-field col s3"> -->
+<!-- 			        <i class="material-icons prefix">search</i> -->
+<!-- 			        <input id="icon_prefix_x" type="text" class="validate"> -->
+<!-- 			        <label for="icon_prefix_x">Buscar</label> -->
+<!-- 			    </div> -->
+			    
+<!-- 			    <div class="input-field col s12 m6"> -->
 			    <div class="input-field col s3">
-			        <i class="material-icons prefix">search</i>
-			        <input id="icon_prefix_x" type="text" class="validate">
-			        <label for="icon_prefix_x">Buscar</label>
-			    </div>
+			    <i class="material-icons prefix">search</i>
+					<input style="border-radius: 4px;" id="fullname" type="text"
+						name="search" ng-model="searchText" /> <label for="fullname"
+						class="active"> <span class="fa fa-search"></span>
+						Buscar:
+					</label>
+				</div>
+			    
+			    
+			    
+			    
 			</div>
 			<div class="row" >
 				<div class="col s5" >
-					<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
-						<thead>
-						          	<tr>
-						              	<th data-field="1">NHistoria</th>
-						              	<th data-field="2">Mascota</th>
-						              	<th data-field="2">Dueno</th>
-						          	</tr>
-						</thead>
+				
+				
+				<table class="bordered highlight centered z-depth-1 blue-grey lighten-4">
+					<thead>
+						<tr>													          	
+						     <th data-field="fullname">NHistoria</th>
+						     <th data-field="fullname">Mascota</th>
+						     <th data-field="fullname">Dueno</th>			          	
+						</tr>
+					</thead>
+					<tbody>
 
-						 <tbody>
-						          	<tr>
-						            	<td>100</td>
-						            	<td>Max</td>
-						            	<td>Samir Alarcon</td>
-						            	<td>
-						            		<a href="#">
-												<i class="material-icons prefix">playlist_add</i>
-						            		</a>
-						            	</td>
-						          	</tr>
-						          	<tr>
-						            	<td>200</td>
-						            	<td>Osa</td>
-						            	<td>Kelly Pinedo</td>
-						            	<td>
-						            		<a href="#">
-												<i class="material-icons prefix">playlist_add</i>
-						            		</a>
-						            	</td>
-						          	</tr>
-						          	<tr>
-						            	<td>300</td>
-						            	<td>Pelusa</td>
-						            	<td>Wilmer Quispe</td>
-						            	<td>
-						            		<a href="#">
-												<i class="material-icons prefix">playlist_add</i>
-						            		</a>
-						            	</td>
-						          	</tr>
-						          	<tr>
-						            	<td>400</td>
-						            	<td>Patada</td>
-						            	<td>Mayra Davila</td>
-						            	<td>
-						            		<a href="#">
-												<i class="material-icons prefix">playlist_add</i>
-						            		</a>
-						            	</td>
-						          	</tr>
-						          	<tr>
-						            	<td>500</td>
-						            	<td>Pluto</td>
-						            	<td>Carlos Ramires</td>
-						            	<td>
-						            		<a href="#">
-												<i class="material-icons prefix">playlist_add</i>
-						            		</a>
-						            	</td>
-						          	</tr>
-				        </tbody>
-				    </table>
+
+						<tr
+							ng-repeat="paciente in pacientes | orderBy:predicate:reverse | filter:searchText | limitTo:5">
+							<td>{{paciente.numH}}</td>
+							<td>{{paciente.nomM}}</td>
+							<td>{{paciente.nomC}}</td>
+							<td><a href="#" ng-click=" modificarPaciente(paciente);"><i class="material-icons prefix">playlist_add</i></a></td>
+						</tr>
+					</tbody>
+				</table>
+					
 				</div>
 				<div class="col s7">
 							Servicios del Dia
@@ -205,7 +181,7 @@
 			<div class="row">
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i>
-			      	<input value="Samir Alarcon" id="first_name2" type="text" class="validate">
+			      	<input id="first_name2" type="text" class="validate" ng-model="paciente.nomC">
 			      	<label class="active" for="first_name2">Cliente</label>
 			    </div>
 			    <div class="input-field col s3">
@@ -220,7 +196,7 @@
 			<div class="row">
 				<div class="input-field col s3">
 					<i class="material-icons prefix">perm_identity</i>
-			      	<input value="Max" id="first_name2" type="text" class="validate">
+			      	<input id="first_name2" type="text" class="validate" ng-model="paciente.nomM">
 			      	<label class="active" for="first_name2">Mascota</label>
 			    </div>
 			    <div class="input-field col s3">
@@ -234,12 +210,25 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s3">
-					<i class="material-icons prefix">perm_contact_calendar</i>
-			      	<input value="11 de Noviembre 2015" id="first_name2" type="text" class="validate">
-			      	<label class="active" for="first_name2">Fecha</label>
-			    </div>
+
+						<i class="material-icons prefix">perm_contact_calendar</i>
+						<label for="inputCreated">Fecha de Nacimiento</label> <input input-date
+							type="text" name="created" id="inputCreated"
+							ng-model="fecha" container="body" format="dd/mm/yyyy"
+							months-full="{{ month }}" months-short="{{ monthShort }}"
+							weekdays-full="{{ weekdaysFull }}"
+							weekdays-short="{{ weekdaysShort }}"
+							weekdays-letter="{{ weekdaysLetter }}" disable="disable"
+							min="{{ minDate }}" max="{{ maxDate }}" today="today"
+							clear="clear" close="close" select-years="15"
+							on-start="onStart()" on-render="onRender()" on-open="onOpen()"
+							on-close="onClose()" on-set="onSet()" on-stop="onStop()" />
+
+		
+					</div>
+			    
 			    <div class = "input-field col s3">
-				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="#modal1">
+				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="#modal1" ng-click=" registrarServicio();">
 				 </div>
 				
 			</div>
@@ -353,7 +342,7 @@
 			      	<label class="active" for="first_name2">Direccion</label>
 			    </div>
 			    <div class = "input-field col s3">
-				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="<c:url value='#modal1'/>">
+				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="#modal1">
 				 </div>
 				
 			</div>
@@ -552,7 +541,7 @@
 				    <label>Sexo</label>
 				 </div>
 			    <div class = "input-field col s3">
-				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="<c:url value='#modal1'/>">
+				 	<INPUT type="button" value="Guardar"class = "btn modal-trigger"  href="#modal1">
 				 </div>
 			</div>
 
@@ -583,11 +572,11 @@
 		    </div>
 		</div>
 
-		<footer class="page-footer #e0e0e0 grey lighten-2">
+		<footer class="page-footer #e0e0e0 grey lighten-2" >
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <p aling="center" class="blue-text"><img src="<c:url value="Imagenes/logo3.png"/>" style="height: 60px; align:center; " >Sistema de Veterinaria ... </p>
+                <p aling="center" class="blue-text"><img src="<c:url value='/resources/Otros/Imagenes/logo3.png'/>" style="height: 60px; align:center; " >Sistema de Veterinaria San Marcos </p>
                 
                 <p class="blue-text ">Curso    :  Taller de Proyectos 2 </p>
                 <p class="blue-text ">Profesor :  Chavez </p>
@@ -596,12 +585,12 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="blue-text">Integrantes</h5>
                 <ul>
-                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
-                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
-                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
-                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
-                  <li><a class="blue-text " href="#!">alumno   codigo</a></li>
-                  <li><a class="blue-text " href="#!">alumno  codigo</a></li>
+                  <li><a class="blue-text " href="#!">Alarcon Samir   11200001</a></li>
+                  <li><a class="blue-text " href="#!">Perca Cristian  12200434</a></li>
+                  <li><a class="blue-text " href="#!">Davila Mayra    12200343</a></li>
+                  <li><a class="blue-text " href="#!">Bendezu Fredy   12200123</a></li>
+                  <li><a class="blue-text " href="#!">Velasquez Gino  12200453</a></li>
+                  <li><a class="blue-text " href="#!">Ipchas Leonardo 12200678</a></li>
                 </ul>
               </div>
             </div>
@@ -614,8 +603,11 @@
           </div>
         </footer>
 
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/materialize.min.js"/>"></script>
+		<script src="<c:url value='/resources/Otros/js/jquery.min.js'/>"></script>
+		<script src="<c:url value='/resources/Otros/js/materialize.min.js'/>"></script>
+				<script src="<c:url value="/resources/bower_components/angular/angular.js" />"></script>
+		<script src="<c:url value="/resources/bower_components/angular-materialize/src/angular-materialize.js" />"></script>
+		<script src="<c:url value="/resources/scripts/RecepcionistaCtrl.js" />"></script>
 		<script>
 			$('.datepicker').pickadate({
 			    selectMonths: true, // Creates a dropdown to control month

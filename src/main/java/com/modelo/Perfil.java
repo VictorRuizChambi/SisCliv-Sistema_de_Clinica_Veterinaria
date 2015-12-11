@@ -1,7 +1,11 @@
 package com.modelo;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.recursos.Exclude;
+
 import java.util.List;
 
 
@@ -29,10 +33,12 @@ public class Perfil implements Serializable {
 	private String pStNombre;
 
 	//bi-directional many-to-one association to Opcion
+	@Exclude
 	@OneToMany(mappedBy="perfil")
 	private List<Opcion> opcions;
 
 	//bi-directional many-to-one association to Usuario
+	@Exclude
 	@OneToMany(mappedBy="perfil")
 	private List<Usuario> usuarios;
 
