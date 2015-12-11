@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,6 +28,7 @@ import com.recursos.SQLConstants.SQLUsuario;
  * 
  */
 @Entity
+@Table(name="CLIENTE")
 @NamedQueries({
 	@NamedQuery(name=SQLCliente.QUERY_FIND_BY_CLIENTE_BY_STATUS, query="SELECT c FROM Cliente c Where c.cInStatus=:cInStatus"),
 	@NamedQuery(name=SQLCliente.QUERY_DELETE_BY_CLIENTE_PK, query="UPDATE Cliente c set c.cInStatus=0 Where c.cInClientePk=:cInClientePk"),

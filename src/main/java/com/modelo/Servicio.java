@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.recursos.Exclude;
 
@@ -21,6 +22,7 @@ import com.recursos.Exclude;
  * 
  */
 @Entity
+@Table(name="SERVICIO")
 @NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
 public class Servicio implements Serializable {
 	private static final long serialVersionUID = 1L;

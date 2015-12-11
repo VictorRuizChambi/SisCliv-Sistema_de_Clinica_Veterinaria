@@ -10,15 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.recursos.Exclude;
 
-
-/**
- * The persistent class for the especie database table.
- * 
- */
 @Entity
+@Table(name="ESPECIE")
 @NamedQuery(name="Especie.findAll", query="SELECT e FROM Especie e")
 public class Especie implements Serializable {
 	private static final long serialVersionUID = 1L;

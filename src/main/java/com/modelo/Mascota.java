@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,6 +27,7 @@ import com.recursos.SQLConstants.SQLMascota;
  * 
  */
 @Entity
+@Table(name="MASCOTA")
 @NamedQueries({
 @NamedQuery(name=SQLMascota.QUERY_DELETE_BY_MASCOTA_PK, query="UPDATE Mascota m SET m.mInStatus=0 WHERE m.mInMascotaPk=:mInMascotaPk"),
 @NamedQuery(name=SQLMascota.QUERY_FIND_BY_STATUS, query="SELECT m FROM Mascota m WHERE m.mInStatus=1")

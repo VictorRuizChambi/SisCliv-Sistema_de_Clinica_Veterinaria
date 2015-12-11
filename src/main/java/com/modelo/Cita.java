@@ -1,5 +1,4 @@
 package com.modelo;
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +9,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name="CITA")
 @NamedQuery(name="Cita.findAll", query="SELECT c FROM Cita c")
 public class Cita implements Serializable {
 	private static final long serialVersionUID = 1L;

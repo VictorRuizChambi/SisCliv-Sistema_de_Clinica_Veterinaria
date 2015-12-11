@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,6 +27,7 @@ import com.recursos.SQLConstants.SQLUsuario;
  * 
  */
 @Entity
+@Table(name="USUARIO")
 @NamedQueries({
 @NamedQuery(name=SQLUsuario.QUERY_FIND_USER_BY_DNI, query="SELECT u FROM Usuario u Where u.uInDni=:uInDni"),
 @NamedQuery(name=SQLUsuario.QUERY_VERIFICA_USUARIO, query="SELECT u FROM Usuario u Where u.uInDni =:uInDni and u.uStContrasena =:uStContrasena")

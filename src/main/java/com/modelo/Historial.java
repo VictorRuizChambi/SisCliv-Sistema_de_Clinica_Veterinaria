@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +25,7 @@ import com.recursos.Exclude;
  * 
  */
 @Entity
+@Table(name="HISTORIAL")
 @NamedQuery(name="Historial.findAll", query="SELECT h FROM Historial h")
 public class Historial implements Serializable {
 	private static final long serialVersionUID = 1L;
