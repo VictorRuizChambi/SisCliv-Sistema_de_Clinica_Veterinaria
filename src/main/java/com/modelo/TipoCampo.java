@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="tipo_campo")
+@Table(name="TIPO_CAMPO")
 @NamedQuery(name="TipoCampo.findAll", query="SELECT t FROM TipoCampo t")
 public class TipoCampo implements Serializable {
 	private static final long serialVersionUID = 1L;
