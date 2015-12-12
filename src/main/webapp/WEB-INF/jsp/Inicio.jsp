@@ -54,7 +54,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link
 	href="<c:url value='/resources/InicioFinal/font/css/font-awesome.min.css'/>"
 	rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="<c:url value='/resources/css/sweetalert2.css'/>"    media="screen,projection"/>
+<link type="text/css" rel="stylesheet"
+	href="<c:url value='/resources/css/sweetalert2.css'/>"
+	media="screen,projection" />
 <script type="text/javascript">
 	function IrPagina(login, contraseña) {
 		if (login == "recep" && contraseña == "recep") {
@@ -117,7 +119,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li class="active" id="firstLink"><a href="#nosotros"
 							class="scroll-link">Nosotros</a></li>
 						<li><a href="#servicios" class="scroll-link">Servicios</a></li>
-						<li><a href="#promociones" class="scroll-link">Promociones</a></li>						
+						<li><a href="#promociones" class="scroll-link">Promociones</a></li>
 						<li><a href="#soy_cliente" class="scroll-link">Login</a></li>
 					</ul>
 				</div>
@@ -410,30 +412,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 				<div class="row mrgn30">
-					
-						<div class="col-sm-4">
-							<div class="form-group">
-								<label for="dni">DNI</label> <input type="text"
-									class="form-control" name="dni" id="dni"
-									placeholder="Ingrese dni"
-									title="Por favor ingrese su nÃºmero de dni" ng-model="dni">
-							</div>
-							<div class="form-group">
-								<label for="contraseña">Contraseña</label> 
-								<input type="password" class="form-control" name="contraseña" id="contraseña"
-									placeholder="Ingrese contraseña"
-									title="Por favor ingrese su contraseña" ng-model="contrasena">
-							</div>
-							<button type="button"
-								class="btn btn-lg btn-primary" id="submit" ng-click="verificaUsuario();">Ingresar</button>
-								
-								
-							<button name="submit" type="submit"
-								class="btn btn-lg btn-primary" id="submit">
-								<a href="<c:url value='Recepcionista.html'/>"style="color: #fff;">Registrarse</a>
-							</button>
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="dni">DNI</label> <input type="text"
+								class="form-control" name="dni" id="dni"
+								placeholder="Ingrese dni"
+								title="Por favor ingrese su nÃºmero de dni" ng-model="dni">
 						</div>
-					
+						<div class="form-group">
+							<label for="contraseña">Contraseña</label> <input type="password"
+								class="form-control" name="contraseña" id="contraseña"
+								placeholder="Ingrese contraseña"
+								title="Por favor ingrese su contraseña" ng-model="contrasena">
+						</div>
+						<button type="button" class="btn btn-lg btn-primary" id="submit"
+							ng-click="verificaUsuario();">Ingresar</button>
+
+
+						<button name="submit" type="submit" class="btn btn-lg btn-primary"
+							id="submit">
+							<a href="<c:url value='Recepcionista.html'/>"
+								style="color: #fff;">Registrarse</a>
+						</button>
+					</div>
+
 					<div class="col-sm-8">
 						<h4>Dirección:</h4>
 						Facultad de Medicina Veterinaria de la UNMSM, Av. Circunvalación
@@ -444,6 +447,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						Lunes a Domingo las 24 horas del día.<br>
 					</div>
 				</div>
+				</br>
+				<table 
+					class="table"
+					>
+					<thead>
+						<tr>
+							<th>DNI</th>
+							<th>CONTRASEÑA</th>
+							<th>PERFIL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td>71465789</td>
+							<td>1234</td>
+							<td>Recepcionista</td>
+						</tr>
+						
+						<tr >
+							<td>45321245</td>
+							<td>1234</td>
+							<td>Medico veterinario</td>
+						</tr>
+						<tr >
+							<td>6784532</td>
+							<td>1234</td>
+							<td>Clinico veterinario</td>
+						</tr>
+						<tr >
+							<td>73459870</td>
+							<td>1234</td>
+							<td>Cliente</td>
+						</tr>
+					</tbody>
+					
+				</table>
+
 			</div>
 	</section>
 	<!--/.page-section-->
@@ -483,11 +523,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		type="text/javascript"></script>
 	<script
 		src="<c:url value='/resources/InicioFinal/js/owl-carousel/owl.carousel.js'/>"></script>
-		
-		<script src="<c:url value="/resources/js/jquery.min.js" />"></script>		
-		<script src="<c:url value="/resources/js/sweetalert2.js" />"></script>		
-		<script src="<c:url value="/resources/bower_components/angular/angular.js" />"></script>		
-		<script src="<c:url value="/resources/scripts/LoginCtrl.js" />"></script>
-		
+
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/sweetalert2.js" />"></script>
+	<script
+		src="<c:url value="/resources/bower_components/angular/angular.js" />"></script>
+	<script src="<c:url value="/resources/scripts/LoginCtrl.js" />"></script>
+
 </body>
 </html>
