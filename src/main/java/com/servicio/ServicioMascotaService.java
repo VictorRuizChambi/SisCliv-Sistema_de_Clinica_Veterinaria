@@ -21,7 +21,7 @@ public interface ServicioMascotaService {
 	public void saveServicioMascota(ServicioMascota objServicioMascota);
 	public void updateServicioMascota(ServicioMascota objServicioMascota);
 	public void deleteServicioMascota(int smInServicioMascotaPk);
-	public List<ServicioMascota> getServiciosPendientes(int smInAtendido,Date smDtFechaServicio,int	tInDni);
+	public List<ServicioMascota> getServiciosPendientes(int smInAtendido,int	tInDni);
 	public NombreCampo getNombrCampo(int ncInDetalleServicioPk);
 	public void saveValorServicio(ValorServicio valorServicio1);
 }

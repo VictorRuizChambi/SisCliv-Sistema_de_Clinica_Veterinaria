@@ -67,13 +67,12 @@ public class ServicioMascotaServiceImpl implements ServicioMascotaService {
 		
 	}
 	@Override
-	public List<ServicioMascota> getServiciosPendientes(int smInAtendido,Date smDtFechaServicio,int	tInDni) {
+	public List<ServicioMascota> getServiciosPendientes(int smInAtendido,int	tInDni) {
 		Map<String, Object> parameters=new HashMap<String, Object>(); 
 		parameters.put("smInAtendido", smInAtendido);
-		parameters.put("smDtFechaServicio", smDtFechaServicio);
 		parameters.put("tInDni", tInDni);
 		System.out.println("ATENDIDO"+smInAtendido);
-		System.out.println("FECHA"+smDtFechaServicio);
+
 		System.out.println("DNI"+tInDni);
 		List<ServicioMascota> servicios=servicioMascotaCrudDAO.findByNamedQuery(SQLServicioMascota.QUERY_FIND_CONSULTA_ATENDIDO_DAY, parameters);
 		if (servicios!=null) {

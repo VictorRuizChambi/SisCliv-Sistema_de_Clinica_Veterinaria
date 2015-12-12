@@ -22,15 +22,11 @@
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i
 					class="material-icons indigo darken-2">menu</i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="ConsultarCliente" class="white-text text-darken-2">Cliente </a></li>
-					<li><a href="ConsultarMascota" class="white-text text-darken-2">Mascota</a></li>
 <!-- 					<li><a class="dropdown-button" href="ConsultarCliente">Clientes</a></li> -->
 <!-- 					<li><a class="dropdown-button" href="ConsultarMascota">Mascotas</a></li> -->
 					<li><a class="dropdown-button" href="#!">Servicios</a></li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-					<li><a href="ConsultarCliente" class="blue-text text-darken-2">Cliente </a></li>
-					<li><a href="ConsultarMascota" class="blue-text text-darken-2">Mascota</a></li>
 					<li><a href="obras" class="blue-text text-darken-2">Servicios</a></li>
 				</ul>
 			</div>
@@ -65,6 +61,7 @@
 							<th data-field="fullName">Apellido Paterno</th>
 							<th data-field="fullName">Apellido Materno</th>
 							<th data-field="fullName">Fecha</th>
+							<th data-field="fullName">Servicio</th>
 							<th data-field="fullName">Atender</th>
 						</tr>
 					</thead>
@@ -80,6 +77,7 @@
 							<td>{{consulta.historial.mascota.mStApellidoPaterno}}</td>
 							<td>{{consulta.historial.mascota.mStApellidoMaterno}}</td>
 							<td>{{consulta.smDtFechaServicio}}</td>
+							<td>{{consulta.servicio.sStNombre}}</td>
 							
 
 							<td><a href="#"   ng-click="asignarServicioMascota(consulta); "><i class="material-icons right">pets</i></a></td>

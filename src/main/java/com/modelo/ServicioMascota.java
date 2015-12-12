@@ -27,7 +27,7 @@ import com.recursos.SQLConstants.SQLServicioMascota;
 @Entity
 @Table(name="servicio_mascota")
 @NamedQueries({
-@NamedQuery(name=SQLServicioMascota.QUERY_FIND_CONSULTA_ATENDIDO_DAY, query="SELECT s FROM ServicioMascota s WHERE s.smInAtendido=:smInAtendido and s.smDtFechaServicio=:smDtFechaServicio and s.servicio.sInServicioPk=:sInServicioPk"),
+@NamedQuery(name=SQLServicioMascota.QUERY_FIND_CONSULTA_ATENDIDO_DAY, query="SELECT s FROM ServicioMascota s WHERE s.smInAtendido=:smInAtendido and s.trabajador.tInDni=:tInDni"),
 @NamedQuery(name=SQLSHistorial.QUERY_FIND_SERVICIOMASCOTA_BY_USUARIOPK,query="SELECT s FROM ServicioMascota s Where s.historial.mascota.cliente.usuario.uInUsuarioPk=:uInUsuarioPk")
 })
 public class ServicioMascota implements Serializable {

@@ -31,7 +31,11 @@ public class MedicoController {
 		  Usuario u=(Usuario) req.getSession().getAttribute("usuario");
 		  List<ServicioMascota> objServicioMascota=null; 
 		  try{
-			  objServicioMascota= servicioMascotaService.getServiciosPendientes(0, new Date(),u.getUInDni());
+			  objServicioMascota= servicioMascotaService.getServiciosPendientes(0,u.getUInDni());
+//			  System.out.println(new Date());
+//			  System.out.println();
+			  
+			  
 		  }catch(Exception e){}
 		  String jsonResponse= null;
 		  final Gson gson = new GsonBuilder().setExclusionStrategies(new AnnotationExclusionStrategy()).create();
